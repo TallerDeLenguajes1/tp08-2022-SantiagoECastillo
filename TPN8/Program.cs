@@ -1,12 +1,16 @@
 ﻿using System.IO;
 
-//Console.WriteLine("Ingrese una direccion: ");
-//string ingresoDireccion = Console.ReadLine();
 
-string direccionArchivos = @"C:\Users\santiago\Desktop\Facultad\Taller_de_lenguaje_1\TPN8\tp08-2022-SantiagoECastillo\Archivos_prueba";
-DirectoryInfo direccion = new DirectoryInfo(direccionArchivos);
-Console.WriteLine("Los archivos del direcctorio ingresados son:");
-foreach (var archivo in direccion.GetFiles())
-{
-    Console.WriteLine(archivo.Name);    
+Console.WriteLine("Ingrese la ruta del archivo");
+string? ruta = @"" + Console.ReadLine();
+
+if(Directory.Exists(ruta)){
+    List<string> listaDeArchivos = Directory.GetDirectories(ruta).ToList();
+
+    Console.WriteLine("\n ARCHIVOS:");
+    foreach(string archivos in listaDeArchivos){
+        Console.WriteLine(archivos);
+    }
+}else{
+    Console.WriteLine("No se encontro el archivo");
 }
